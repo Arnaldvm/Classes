@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "E:\uni\1r\Programació 2\Github\Programacio-2\Classes\Classes\Point2D.cpp"
-#include "E:\uni\1r\Programació 2\Github\Programacio-2\Classes\Classes\String.cpp"
+#include "..\Classes\Point2D.cpp"
+#include "..\Classes\String.cpp"
 
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -198,21 +198,22 @@ namespace UnitTest
 		Assert::IsTrue(*a == *b);
 		}
 		
-		TEST_METHOD(add_s_char){
+		TEST_METHOD(add_s_char){ //We create a String and we associate it "Hello", we create a new empty String and then we do the operation. Finally we check if they are the same.
 
-			String* a = new String("lo");
-			char* b = "lo";
-			a += *b;
-			Assert::IsTrue(a->characters == "lo");
+		String* a = new String();
+		a->characters = "Hello";
+		String* b = new String();
+		*b += *a;
+		Assert::IsTrue(b->characters == "Hello");
 		}
 
-		TEST_METHOD(add_s_s){
+		TEST_METHOD(add_s_s){ //We create 2 Strings and then we add the 2nd to the 1st. Then we chack if they are the same.
 
 		String* a = new String("Hel");
-		String* b = new String("");
-		String* c = new String("Hel");
+		String* b = new String("lo");
 		*a += *b;
-		Assert::IsTrue(*a == *c);
+		String* c = new String("Hello");
+		Assert::IsTrue(a->length_string == c->length_string);
 
 		}
 
